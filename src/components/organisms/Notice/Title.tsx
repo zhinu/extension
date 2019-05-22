@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Truncated from '../../atoms/Truncated';
 
-export const TitleContainer = styled.p`
+export const TitleContainer = styled.p.attrs({
+  'data-test-type': 'noticeTitle'
+})`
   display: inline;
   margin: 0 10px 0 0;
   color: ${props => props.theme.activeColor};

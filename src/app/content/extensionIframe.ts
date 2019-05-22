@@ -5,6 +5,7 @@ export const create = (style: {
 }): HTMLIFrameElement => {
   const iframe = document.createElement('iframe');
   iframe.id = 'lmemFrame';
+  iframe.name = 'BubbleIONotification';
   iframe.width = '390px';
   iframe.height = '423px';
   iframe.srcdoc =

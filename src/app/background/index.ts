@@ -66,7 +66,7 @@ fetchContentScript('/js/grabDraftNotices.js').then(contentCode =>
 );
 
 const state: BackgroundState = store.getState();
-if (!getInstallationDetails(state).datetime) {
+if (!getInstallationDetails(state).datetime && process.env.ONBOARDING_ORIGIN) {
   onInstalled(process.env.ONBOARDING_ORIGIN)(store.dispatch);
 }
 

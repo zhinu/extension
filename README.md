@@ -116,7 +116,7 @@ yarn build:dev
 
 ```bash
 # test everything
-yarn test
+yarn test:unit
 ```
 
 ## Lint
@@ -150,6 +150,22 @@ yarn lint:css
 ### Integration tests
 
 Inspect the extension _background_ to get its console and run `window.integrationTest()`.
+
+### Integration tests (New)
+
+Integration tests run a series of real world (staging) scenarios to validate the BDD features described in ./features folder.
+
+Run
+
+```
+yarn start
+```
+
+and then concurrently:
+
+```
+yarn test:e2e
+```
 
 ## LICENSE
 

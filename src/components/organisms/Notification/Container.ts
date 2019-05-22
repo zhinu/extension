@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
+export const Section = styled.section.attrs({
+  'data-test-id': 'bubble-notification'
+})`
   display: flex;
   flex-direction: column;
   max-width: 384px;
