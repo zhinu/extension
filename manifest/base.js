@@ -16,7 +16,8 @@ module.exports = Object.freeze({
   manifest_version: 2,
   icons,
   background: {
-    page: 'background.html'
+    scripts: ['/js/browser-polyfill.js', 'js/background.bundle.js'],
+    persistent: false
   },
   content_scripts: [
     {
@@ -54,7 +55,7 @@ module.exports = Object.freeze({
     default_title: 'Bulles'
   },
   permissions: ['activeTab', 'storage'],
-  web_accessible_resources: ['img/*', 'fonts/*'],
+  web_accessible_resources: ['img/*', 'fonts/*']
   // externally_connectable: {
   //   matches: ['https://*.lmem.net/*']
   // }
