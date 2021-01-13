@@ -39,6 +39,17 @@ export const get = (path: string, data: object = {}) => {
   );
 };
 
+export const checkStatus = (response: Response) => {
+  const { status } = response;
+  if (status >= 200 && status < 300) {
+    return response;
+  } else if (status >= 500) {
+    throw new Error('Bad response from server');
+  } else {
+    throw new Error(response.statusText);
+  }
+};
+
 export const post = (path: string, data: {} | []) =>
   fetch(path.startsWith('http') ? path : BACKEND_ORIGIN + path, {
     method: 'POST',
@@ -47,12 +58,11 @@ export const post = (path: string, data: {} | []) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(response => {
-    if (response.status >= 400) {
-      throw new Error('Bad response from server');
-    }
-    if (response.status === 204) {
-      return true;
-    }
-    return response.json();
-  });
+  })
+    .then(checkStatus)
+    .then(response => {
+      if (response.status === 204) {
+        return true;
+      }
+      return response.json();
+    });
