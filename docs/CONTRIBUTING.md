@@ -83,7 +83,7 @@ You should respect the following **directory structure**:
 You can lint both TypeScript and CSS by running:
 
 ```bash
-yan lint
+yarn lint
 ```
 
 #### Typescript
