@@ -19,6 +19,12 @@ export const subscribe = (
   meta
 });
 
+export const isSubscriptionAutomatic = 'isAutomatic';
+export interface isSubscriptionAutomaticActions extends BaseAction {
+  type: typeof isSubscriptionAutomatic;
+  payload: boolean;
+}
+
 export const SUBSCRIBED = 'SUBSCRIBED';
 export interface SubscribedAction extends ContributorAction {
   type: typeof SUBSCRIBED;
@@ -96,6 +102,7 @@ export const unsubscribedFailed = (
 
 export type SubscriptionAction =
   | SubscribeAction
+  | isSubscriptionAutomaticAction
   | SubscribedAction
   | SubscribeFailedAction
   | UnsubscribeAction
